@@ -1,3 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Question 😂</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 100px 15px;
+  overflow: hidden;
+}
+
+h1 { font-size: 27px; }
+
+button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#yes {
+  background: #20d879;
+  margin: 20px;
+}
+
+#no {
+  background: #ff4545;
+  color: white;
+  position: fixed;
+  left: 55%;
+  top: 190px;
+}
+
+#result {
+  display: none;
+  margin-top: 60px;
+}
+
+#message {
+  font-size: clamp(40px, 12vw, 65px);
+  font-weight: 900;
+  color: #ff3030;
+}
+
+#back {
+  background: white;
+  color: black;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="question">
+  <h1>Are you sure you wanna see this? 👀</h1>
+
+  <button id="yes" onclick="reveal()">YES 😈</button>
+  <button id="no">NO 🏃</button>
+</div>
+
+<div id="result">
+  <div id="message">FUCK YOU 🫵😁</div>
+  <p>GOTCHA 😂😂</p>
+  <button id="back" onclick="goBack()">⬅ BACK</button>
+</div>
 
 <script>
 const no = document.getElementById("no");
@@ -8,7 +85,7 @@ const warnings = [
   "Bro, don't do this 💀",
   "Last chance... 😂",
   "JUST PRESS YES! 😈",
-  "You can't escape the truth 🤣"
+  "You can't escape! 🤣"
 ];
 
 let attempts = 0;
@@ -41,3 +118,6 @@ function goBack() {
   document.getElementById("question").style.display = "block";
 }
 </script>
+
+</body>
+</html>
