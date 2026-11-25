@@ -1,63 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>One Question 😂</title>
-<style>
-body {
-  background: #111;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 100px;
-  overflow: hidden;
-}
-h1 { font-size: 27px; }
-button {
-  padding: 15px 28px;
-  border: none;
-  border-radius: 12px;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 15px;
-}
-#yes { background: #20d879; }
-#no {
-  background: #ff4545;
-  position: absolute;
-}
-#result {
-  display: none;
-  font-size: 48px;
-  font-weight: 900;
-  color: #ff3030;
-  margin-top: 100px;
-}
-</style>
-</head>
-<body>
-
-<div id="question">
-  <h1>Are you sure you wanna see this? 👀</h1>
-  <button id="yes" onclick="reveal()">YES 😈</button>
-  <button id="no">NO 🏃</button>
-</div>
-
-<div id="result">
-  FUCK YOU 🫵😁
-  <p style="font-size:20px;color:white">
-    GOTCHA 😂😂
-  </p>
-</div>
 
 <script>
 const no = document.getElementById("no");
 
+const warnings = [
+  "Think again! 🤨",
+  "Are you REALLY sure? 😭",
+  "Bro, don't do this 💀",
+  "Last chance... 😂",
+  "JUST PRESS YES! 😈",
+  "You can't escape the truth 🤣"
+];
+
+let attempts = 0;
+
 function escapeButton() {
-  no.style.left = Math.random() *
-    (window.innerWidth - no.offsetWidth) + "px";
-  no.style.top = Math.random() *
-    (window.innerHeight - no.offsetHeight) + "px";
+  const maxX = window.innerWidth - no.offsetWidth;
+  const maxY = window.innerHeight - no.offsetHeight;
+
+  no.textContent = warnings[attempts % warnings.length];
+  attempts++;
+
+  no.style.left = Math.random() * Math.max(0, maxX) + "px";
+  no.style.top = Math.random() * Math.max(0, maxY) + "px";
 }
 
 no.addEventListener("touchstart", function(e) {
@@ -71,7 +35,9 @@ function reveal() {
   document.getElementById("question").style.display = "none";
   document.getElementById("result").style.display = "block";
 }
-</script>
 
-</body>
-</html>
+function goBack() {
+  document.getElementById("result").style.display = "none";
+  document.getElementById("question").style.display = "block";
+}
+</script>
